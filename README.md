@@ -1,9 +1,9 @@
-Movie Infos - Site Web d'Informations sur les Films 🎬
+# Movie Infos - Site Web d'Informations sur les Films 🎬
 
 Movie Infos est une application web simple qui utilise l'API de The Movie Database (TMDb) pour afficher des informations sur les films, tels que les titres, résumés, dates de sortie, et plus encore. Ce site permet aux utilisateurs de rechercher des films, de voir leurs détails, et de découvrir des films populaires.
 
 
-🎯 Fonctionnalités
+## 🎯 Fonctionnalités
 
     Recherche de films par titre.
 
@@ -14,29 +14,29 @@ Movie Infos est une application web simple qui utilise l'API de The Movie Databa
     Interface utilisateur simple et responsive.
 
 
-🚀 Installation
+## 🚀 Installation
 
-    Prérequis.
+    ### :monocle_face:Prérequis.
 
-        Navigateur moderne (Chrome, Firefox, Safari, etc.).
+        :white_check_mark:Navigateur moderne (Chrome, Firefox, Safari, etc.).
 
-        Une connexion Internet pour récupérer les données de l'API.  
+        :white_check_mark:Une connexion Internet pour récupérer les données de l'API.  
 
 
-    Étapes d'installation.
+    ### :hammer:Étapes d'installation.
 
         1.Clonez le repository sur votre machine locale :
-        
+            ```sh
             git clone https://github.com/NeferNedjer/movie-info.git
-
+            ```
         2.Naviguez dans le dossier du projet :
-
+            ```sh
             cd movie-info
-
+            ```
         3.Ouvrez le fichier index.html dans votre navigateur pour visualiser le site.
 
 
-🔑 Configuration de l'API
+## 🔑 Configuration de l'API
 
     Pour utiliser l'API de The Movie Database, vous devez obtenir une clé d'API gratuite. Voici les étapes :
 
@@ -49,7 +49,7 @@ Movie Infos est une application web simple qui utilise l'API de The Movie Databa
         const apiKey = 'VOTRE_CLÉ_API_ICI';
 
 
-🛠️ Technologies utilisées
+## 🛠️ Technologies utilisées
 
     HTML5
 
