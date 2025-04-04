@@ -26,13 +26,17 @@ Movie Infos est une application web simple qui utilise l'API de The Movie Databa
     ### :hammer:Étapes d'installation.
 
         1.Clonez le repository sur votre machine locale :
+
             ```sh
             git clone https://github.com/NeferNedjer/movie-info.git
             ```
+
         2.Naviguez dans le dossier du projet :
+
             ```sh
             cd movie-info
             ```
+            
         3.Ouvrez le fichier index.html dans votre navigateur pour visualiser le site.
 
 
