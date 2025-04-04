@@ -40,11 +40,11 @@ Interface utilisateur simple et responsive.
 
 Pour utiliser l'API de The Movie Database, vous devez obtenir une clé d'API gratuite. Voici les étapes :
 
-1.Allez sur The Movie Database (TMDb) et inscrivez-vous.
+:pushpin: 1.Allez sur The Movie Database (TMDb) et inscrivez-vous.
 
-2.Accédez à la section des clés API et générez une clé.
+:pushpin: 2.Accédez à la section des clés API et générez une clé.
 
-3.Ajoutez votre clé API dans votre code JavaScript dans le fichier script.js (ou un fichier équivalent).  Vous pouvez remplacer la ligne où l'API est initialisée, comme suit :
+:pushpin: 3.Ajoutez votre clé API dans votre code JavaScript dans le fichier script.js (ou un fichier équivalent).  Vous pouvez remplacer la ligne où l'API est initialisée, comme suit :
 
     const apiKey = 'VOTRE_CLÉ_API_ICI';
 
