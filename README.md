@@ -5,60 +5,60 @@ Movie Infos est une application web simple qui utilise l'API de The Movie Databa
 
 ## 🎯 Fonctionnalités
 
-    Recherche de films par titre.
+Recherche de films par titre.
 
-    Affichage des détails d'un film (titre, résumé, date de sortie, etc.).
+Affichage des détails d'un film (titre, résumé, date de sortie, etc.).
 
-    Affichage des films populaires.
+Affichage des films populaires.
 
-    Interface utilisateur simple et responsive.
+Interface utilisateur simple et responsive.
 
 
 ## 🚀 Installation
 
-    ### :monocle_face:Prérequis.
+### :monocle_face:Prérequis.
 
-        :white_check_mark:Navigateur moderne (Chrome, Firefox, Safari, etc.).
+:white_check_mark:Navigateur moderne (Chrome, Firefox, Safari, etc.).
 
-        :white_check_mark:Une connexion Internet pour récupérer les données de l'API.  
+:white_check_mark:Une connexion Internet pour récupérer les données de l'API.  
 
 
-    ### :hammer:Étapes d'installation.
+### :hammer:Étapes d'installation.
 
-        1.Clonez le repository sur votre machine locale :
+1.Clonez le repository sur votre machine locale :
 
-            ```sh
-            git clone https://github.com/NeferNedjer/movie-info.git
-            ```
+        ```sh
+        git clone https://github.com/NeferNedjer/movie-info.git
+        ```
 
-        2.Naviguez dans le dossier du projet :
+2.Naviguez dans le dossier du projet :
 
-            ```sh
-            cd movie-info
-            ```
-            
-        3.Ouvrez le fichier index.html dans votre navigateur pour visualiser le site.
+        ```sh
+        cd movie-info
+        ```
+
+    3.Ouvrez le fichier index.html dans votre navigateur pour visualiser le site.
 
 
 ## 🔑 Configuration de l'API
 
-    Pour utiliser l'API de The Movie Database, vous devez obtenir une clé d'API gratuite. Voici les étapes :
+Pour utiliser l'API de The Movie Database, vous devez obtenir une clé d'API gratuite. Voici les étapes :
 
-        1.Allez sur The Movie Database (TMDb) et inscrivez-vous.
+    1.Allez sur The Movie Database (TMDb) et inscrivez-vous.
 
-        2.Accédez à la section des clés API et générez une clé.
+    2.Accédez à la section des clés API et générez une clé.
 
-        3.Ajoutez votre clé API dans votre code JavaScript dans le fichier script.js (ou un fichier équivalent).  Vous pouvez remplacer la ligne où l'API est initialisée, comme suit :
+    3.Ajoutez votre clé API dans votre code JavaScript dans le fichier script.js (ou un fichier équivalent).  Vous pouvez remplacer la ligne où l'API est initialisée, comme suit :
 
-        const apiKey = 'VOTRE_CLÉ_API_ICI';
+    const apiKey = 'VOTRE_CLÉ_API_ICI';
 
 
 ## 🛠️ Technologies utilisées
 
-    HTML5
+HTML5
 
-    CSS3
+CSS3
 
-    JavaScript (ES6+)
+JavaScript (ES6+)
 
-    API The Movie Database (TMDb)
+API The Movie Database (TMDb)
