@@ -11,28 +11,38 @@
         
         <nav id="navBar">
             <figure><img src="./asset/cinema.webp" alt="logo cinema"  class="logo logo-cinema"></figure>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a</li>
-                <li><a href="">Contact</a></li>
-            </ul>
-            <figure><img src="./asset/burger-blanc.webp" alt="" id="icons"></figure>
+            <div class="block">
+                <input type="text" name="search" id="searchInput" placeholder="rechercher un film..." autocomplete="off">
+                <ul id="suggestions"></ul>
+                
+            </div>
+            <!-- <figure><img src="./asset/burger-blanc.webp" alt="" id="icons"></figure> -->
         </nav>
     </header>
     <main>
-        <div class="block">
-            <label for="search">Rechercher un film : </label>
-            <input type="text" name="search" id="search" placeholder="rechercher un film">
-        </div>
-        <section>
+        
+        
+        
+        <select name="" id="genre-select">
+            <option value="">--choisir un genre--</option>
+        </select>
+            <div class="carousel-container">
+                <div class="carousel">
 
+                </div>
+                <button class="prev"></button>
+                <button class="next"></button>
+            </div>
+        
+            <div id="movie-container"></div>
         </section>
+        <section id="movie-details" style="display: none;"></section>
+        <div id="arrow"><a href="#"><img src="./asset/fleche-vers-le-haut.png" alt="haut de page" style="width: 50px"></a></div>
     </main>
 
 
 
 
-
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/main.js"></script> 
 </body>
 </html>
