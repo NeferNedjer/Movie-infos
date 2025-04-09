@@ -24,13 +24,13 @@ export async function searchMovies(query) {
 export async function getMovieDetails(movieId) {
     const res = await fetch(`${baseUrl}/movie/${movieId}?api_key=${API_TOKEN}&language=fr-FR&append_to_response=videos`,options('GET'));
     const data = await res.json();
-    console.log(data);
     return data;
 }
 
 export async function getPopularMovies() {
     const res = await fetch(`${baseUrl}/movie/popular?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
     const data = await res.json();
+    // console.log(data);
     showCarouselMovies(data.results);
 }
 
@@ -51,4 +51,49 @@ export async function getMoviesByGenres(genreId) {
     const data = await res.json();
     return data.results;
 }
+
+export async function getMovieCredits(movieId) {
+    const res = await fetch(`${baseUrl}/movie/${movieId}/credits?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    console.log(data);
+    return data.cast;
+}
+
+export async function getMovieDirectors(movieId) {
+    const res = await fetch(`${baseUrl}/movie/${movieId}/credits?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    return data.crew.filter(person => person.job === 'director');
+}
+
+export async function getPopularActors() {
+    const res = await fetch(`${baseUrl}/person/popular?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    // console.log(data);
+    return data.results;
+}
+
+export async function getDirectors() {
+    const res = await fetch(`${baseUrl}/person/popular?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    const dataResults = data.results.filter(person => person.known_for_department === 'Directing');
+    // console.log(dataResults);
+    return data.results.filter(person => person.known_for_department === 'Directing');
+}
+
+export async function getRecomandations(movieId) {
+    const res = await fetch(`${baseUrl}/movie/${movieId}/recommendations?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    console.log(data);
+    return data;
+}
+
+export async function getMoviesByActor(actorId) {
+    const res = await fetch(`${baseUrl}/discover/movie?api_key=${API_TOKEN}&with_cast=${actorId}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    return data.results;
+  }
+
+
+
+
 

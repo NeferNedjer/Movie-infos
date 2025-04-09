@@ -1,6 +1,6 @@
-import { getPopularMovies } from "./api.js";
+import { getPopularActors, getMovieCredits, getPopularMovies, getMoviesByActor } from "./api.js";
 import { searchMovies } from "./api.js";
-import {showCarouselMovies, showSuggestions} from './ui.js';
+import {showCarouselMovies, showSuggestions, populateActorsSelect} from './ui.js';
 import { getGenres, getMoviesByGenres } from "./api.js";
 
 
@@ -17,7 +17,7 @@ searchInput.addEventListener('input', (e) => {
         } else {
             showSuggestions([]);// vide la liste
         }
-    }, 300);// delai anti-spam
+    }, 100 );// delai anti-spam
 })
 
 async function populateGenres() {
@@ -40,6 +40,16 @@ document.getElementById('genre-select').addEventListener('change', async (e) => 
     }
 })
 
+document.getElementById("actor-select").addEventListener("change", async (e) => {
+    const actorId = e.target.value;
+    if (!actorId) return;
+  
+    const movies = await getMoviesByActor(actorId);
+    showCarouselMovies(movies); 
+  });
+
+
+
 const arrow = document.querySelector("#arrow a");
 
 arrow.addEventListener('click', (e) => {
@@ -53,7 +63,8 @@ arrow.addEventListener('click', (e) => {
 async function init() {
     
     await getPopularMovies();
-    await populateGenres();  
+    await populateGenres();
+    await populateActorsSelect()
 
 }
 

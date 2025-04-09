@@ -1,16 +1,16 @@
-import { getMovieDetails } from "./api.js";
+import { getMovieDetails, getPopularActors } from "./api.js";
 import { getPopularMovies } from "./api.js";
 import { getMovieVideos } from "./api.js";
 
 
 
-export function showLoader() {
-    document.querySelector("#loader").style.display = "block";
-}
+// export function showLoader() {
+//     document.querySelector("#loader").style.display = "block";
+// }
 
-export function hideLoader() {
-    document.querySelector("#loader").style.display = "none";
-}
+// export function hideLoader() {
+//     document.querySelector("#loader").style.display = "none";
+// }
 
 export function showSuggestions(movies) {
     const suggestionBox = document.getElementById('suggestions');
@@ -28,6 +28,12 @@ export function showSuggestions(movies) {
             const details = await getMovieDetails(movie.id);
             showMovieDetails(details);
             suggestionBox.style.display = "none";
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 100);
         });
         suggestionBox.appendChild(li);
     });
@@ -53,6 +59,8 @@ export async function showMovieDetails(movie) {
             </iframe>
         </div>` : "<P> Aucune bande-annonce disponible...</p>"}
     </div>
+       
+    
     `;
     detailSection.style.display = "flex";
 }
@@ -71,10 +79,12 @@ export function showCarouselMovies(movies) {
         img.addEventListener("click", async () => {
             const details = await getMovieDetails(movie.id);
             showMovieDetails(details);
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 100);
         });
         return img;
     };
@@ -90,6 +100,18 @@ export function showCarouselMovies(movies) {
         const img = createMovieImage(movie);
         img.alt += " (copie)";
         carousel.appendChild(img);
+    });
+}
+
+export async function populateActorsSelect() {
+    const select = document.getElementById('actor-select');
+    const actors = await getPopularActors();
+
+    actors.forEach(actor => {
+        const option = document.createElement("option");
+        option.value = actor.id;
+        option.textContent = actor.name;
+        select.appendChild(option);
     });
 }
 
