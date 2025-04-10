@@ -93,12 +93,43 @@ export async function getMoviesByActor(actorId) {
     return data.results;
   }
 
-  export async function getSelection(selection) {
-    const res = await fetch(`${baseUrl}/movie/${selection}?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+  export async function getSelection(selection, page) {
+    const res = await fetch(`${baseUrl}/movie/${selection}?api_key=${API_TOKEN}&language=fr-FR&page=${page}`, options('GET'));
     const data = await res.json();
     return data.results;
   }
 
+// export async function getSelection(selection) {
+//     const cacheKey = `selection_${selection}`;
+//     const cacheResults = localStorage.getItem(cacheKey);
+
+//     if (cacheResults) {
+//         return JSON.parse(cacheResults);
+//     }
+
+//     let allResults = [];
+//     let page = 1;
+//     let totalPages = 1;
+
+//     do {
+//         const res = await fetch(`${baseUrl}/movie/${selection}?api_key=${API_TOKEN}&language=fr-FR&page=${page}`, options('GET'));
+//         const data = await res.json();
+
+//         if (data.results) {
+//             allResults.push(...data.results);
+//             totalPages  = data.total_pages;//met à jour le nombre de pages
+//             page++;
+//         } else {
+//             break;
+//         }
+//     } while (page <= totalPages);// continue jusqu'à la dernière page
+
+//     localStorage.setItem(cacheKey, JSON.stringify(allResults));
+//     console.log("Résultats mis en cache");
+
+//     return allResults;
+
+// }
 /********** CINEMA LIBRE **********/
 
 export async function getPublicDomaineMovies() {

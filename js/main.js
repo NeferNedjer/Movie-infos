@@ -31,10 +31,26 @@ async function populateGenres() {
         select.appendChild(option);
     })
 }
+let page = 1;
 
 document.getElementById('style-select').addEventListener('change', async (e) => {
     const selection = e.target.value;
-    const movies = await getSelection(selection);
+    page = 1;
+    const movies = await getSelection(selection, page);
+    showCarouselMovies(movies);
+})
+
+document.getElementById('nextPage').addEventListener('click', async () => {
+    page++;
+    const selection = document.getElementById('style-select').value;
+    const movies = await getSelection(selection, page);
+    showCarouselMovies(movies);
+})
+
+document.getElementById('previousPage').addEventListener('click', async () => {
+    page--;
+    const selection = document.getElementById('style-select').value;
+    const movies = await getSelection(selection, page);
     showCarouselMovies(movies);
 })
 
@@ -67,7 +83,8 @@ arrow.addEventListener('click', (e) => {
 })
 
 async function init() {
-    
+    console.log(localStorage)
+    // localStorage.clear();
     await getPopularMovies();
     await populateGenres();
     await populateActorsSelect()
