@@ -1,7 +1,7 @@
 import { getPopularActors, getMovieCredits, getPopularMovies, getMoviesByActor } from "./api.js";
 import { searchMovies } from "./api.js";
 import {showCarouselMovies, showSuggestions, populateActorsSelect} from './ui.js';
-import { getGenres, getMoviesByGenres } from "./api.js";
+import { getGenres, getMoviesByGenres, getSelection } from "./api.js";
 
 
 
@@ -31,6 +31,12 @@ async function populateGenres() {
         select.appendChild(option);
     })
 }
+
+document.getElementById('style-select').addEventListener('change', async (e) => {
+    const selection = e.target.value;
+    const movies = await getSelection(selection);
+    showCarouselMovies(movies);
+})
 
 document.getElementById('genre-select').addEventListener('change', async (e) => {
     const genreId = e.target.value;

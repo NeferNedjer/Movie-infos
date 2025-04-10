@@ -1,6 +1,6 @@
 import { getMovieDetails, getPopularActors } from "./api.js";
 import { getPopularMovies } from "./api.js";
-import { getMovieVideos } from "./api.js";
+import { getMovieVideos, getPublicDomaineMovies, getSelection } from "./api.js";
 
 
 
@@ -34,14 +34,17 @@ export function showSuggestions(movies) {
                     behavior: 'smooth'
                 });
             }, 100);
+            details.scrollIntoView({behavior: "smooth"});
         });
         suggestionBox.appendChild(li);
     });
     suggestionBox.style.display = 'block';
+    
 }
 
 export async function showMovieDetails(movie) {
     const detailSection = document.getElementById('movie-details');
+    
     const videos = await getMovieVideos(movie.id);
     const trailer = movie.videos?.results?.find(video => video.type === 'Trailer' && video.site === "YouTube");
     detailSection.innerHTML = `
@@ -63,6 +66,8 @@ export async function showMovieDetails(movie) {
     
     `;
     detailSection.style.display = "flex";
+    const viewTrailer = document.querySelector('.video-container')
+    viewTrailer.scrollIntoView({behavior: "smooth"});
 }
 
 
@@ -116,13 +121,15 @@ export async function populateActorsSelect() {
 }
 
 
-document.querySelector('.next').addEventListener('click', () => {
-    moveCarousel('next');
-})
+// document.querySelector('.next').addEventListener('click', () => {
+//     moveCarousel('next');
+// })
 
-document.querySelector('.prev').addEventListener('click', () => {
-    moveCarousel('prev');
-})
+// document.querySelector('.prev').addEventListener('click', () => {
+//     moveCarousel('prev');
+// })
+
+
 
 
 

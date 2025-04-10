@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/youtube.css">
+    <title>Cinéma Libre</title>
+</head>
+<body>
+    <header>
+        
+        <nav id="navBar">
+            <figure><img src="./asset/cinema.webp" alt="logo cinema"  class="logo logo-cinema"></figure>
+            <!-- <div class="block">
+                <input type="text" name="search" id="searchInput" placeholder="rechercher un film..." autocomplete="off">
+                <ul id="suggestions"></ul>  
+            </div> -->
+            <a href="./index.html">Home</a>
+            
+        </nav>
+    </header>
+
+    <select name="" id="content-type" class="select">
+        <option value="">--Choisir un type--</option>
+        <option value="film complet gratuit">--Films--</option>
+        <option value="spectacle entier">--Spectacles--</option>
+        <option value="documentaire complet gratuit">--Documentaires--</option>
+        <option value="anime complet gratuit">--Animés--</option>
+        <option value="concert entier">--Concerts--</option>
+    </select>
+
+    <div class="carousel-container">
+        <div class="carousel">
+
+        </div>
+        <button class="prev"></button>
+        <button class="next"></button>
+    </div>
+    <div id="video-gallery" class="grid"></div>
+
+    <div id="video-detail" class="hidden">
+        <h2 id="video-title"></h2>
+        <p id="video-description"></p>
+        <div id="video-player"></div>
+    </div>
+    <div id="arrow"><a href="#"><img src="./asset/fleche-vers-le-haut.png" alt="haut de page" style="width: 50px"></a></div>
+    <script type="module" src="./js/youtube.js"></script>
+</body>
+</html>

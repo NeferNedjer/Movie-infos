@@ -93,7 +93,36 @@ export async function getMoviesByActor(actorId) {
     return data.results;
   }
 
+  export async function getSelection(selection) {
+    const res = await fetch(`${baseUrl}/movie/${selection}?api_key=${API_TOKEN}&language=fr-FR`, options('GET'));
+    const data = await res.json();
+    return data.results;
+  }
 
+/********** CINEMA LIBRE **********/
+
+export async function getPublicDomaineMovies() {
+    const baseUrlPublic = 'https://archive.org/advancedsearch.php';
+    const params = new URLSearchParams({
+    q: 'mediatype:movies AND language:fre', 
+    fl: 'identifier,title,creator,year',   
+    rows: 10,                             
+    start: 0,                             
+    output: 'json'                        
+});
+
+    try {
+        const response = await fetch(`${baseUrlPublic}?${params.toString()}`, { mode: 'no-cors' });
+        console.log(response);
+        const data = await response.json();
+        // const movies = data.items.filter(item => item.license === 'Public Domain');
+        // console.log(movies);
+        console.log(data);
+        // return data.files;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des films', error);
+    }
+}
 
 
 
