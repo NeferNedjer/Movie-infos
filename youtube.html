@@ -21,7 +21,6 @@
     </header>
 
     <select name="" id="content-type" class="select">
-        <option value="">--Choisir un type--</option>
         <option value="film complet gratuit">--Films--</option>
         <option value="spectacle entier">--Spectacles--</option>
         <option value="documentaire complet gratuit">--Documentaires--</option>
@@ -36,13 +35,16 @@
         <button class="prev"></button>
         <button class="next"></button>
     </div>
-    <div id="video-gallery" class="grid"></div>
-
+    <div id="container-gallery">
+        <div id="video-gallery" class="grid"></div>
+    </div>
     <div id="video-detail" class="hidden">
         <h2 id="video-title"></h2>
         <p id="video-description"></p>
         <div id="video-player"></div>
     </div>
+    <button id="prevBtn">Prev</button>
+    <button id="nextBtn">Next</button>
     <div id="arrow"><a href="#"><img src="./asset/fleche-vers-le-haut.png" alt="haut de page" style="width: 50px"></a></div>
     <script type="module" src="./js/youtube.js"></script>
 </body>

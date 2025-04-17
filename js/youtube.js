@@ -6,9 +6,13 @@ const player = document.getElementById('video-player');
 const title = document.getElementById('video-title');
 const description =document.getElementById('video-description');
 const contentTypeSelect = document.getElementById('content-type');
+let pageHistory = [];
+let nextPageToken = null;
 
-async function displayVideos(query) {
-    const videos = await searchYouTube(query);
+async function displayVideos(query, token = "") {
+    const data = await searchYouTube(query, token);
+    const videos = data.items;
+
     gallery.innerHTML = '';
     
     videos.forEach(video => {
@@ -34,11 +38,22 @@ async function displayVideos(query) {
         });
         gallery.appendChild(div);
     });
+
+    if (token && !pageHistory.includes(token)) {
+        pageHistory.push(token);
+    }
+
+    nextPageToken = data.nextPageToken || null
+
+    document.getElementById("prevBtn").disabled = pageHistory.length <= 1;
+    document.getElementById("nextBtn").disabled = !nextPageToken;
+
 }
 
 contentTypeSelect.addEventListener('change', (event) => {
     const selectedType = event.target.value;
     displayVideos(selectedType);
+    
 })
 
 const arrow = document.querySelector("#arrow a");
@@ -51,4 +66,24 @@ arrow.addEventListener('click', (e) => {
     });
 })
 
+pageHistory = [""];
 displayVideos(contentTypeSelect.value);
+console.log("Historique des pages :", pageHistory);
+
+
+document.getElementById("nextBtn").addEventListener('click', () => {
+    if (nextPageToken) {
+        displayVideos(contentTypeSelect.value, nextPageToken);
+    }
+})
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    if (pageHistory.length > 1 ) {
+        pageHistory.pop();
+        const previousToken = pageHistory[pageHistory.length - 1];
+        const currentQuery = contentTypeSelect.value;
+        displayVideos(currentQuery, previousToken);
+    } else {
+        console.log("Pas de page précédante");
+    }
+});

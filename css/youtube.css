@@ -89,6 +89,14 @@ ul {
 
 /********************/
 
+#container-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .select {
     margin-top: 3rem;
     font-size: 1.1rem;
@@ -106,10 +114,12 @@ a {
   }
   
   .grid {
+    align-items: center;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
     margin-top: 20px;
+    width: 90%;
   }
   
   .thumb {
@@ -117,7 +127,6 @@ a {
     border-radius: 12px;
     padding: 10px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
   }
   
@@ -142,7 +151,6 @@ a {
     height: 0;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin: 2rem auto;
     width: 90%;
     max-width: 850px;
@@ -173,4 +181,25 @@ a {
 
 #arrow {
     text-align: center;
+}
+
+@media (max-width: 1200px) {
+  #video-gallery {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  #video-gallery {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  #video-gallery {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 400px) {
+  #video-gallery {
+      grid-template-columns: 1fr;
+  }
 }
